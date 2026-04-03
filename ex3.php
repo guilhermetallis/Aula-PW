@@ -8,3 +8,4 @@ $novoValor = $valor - $desconto;
 echo "Valor original: $valor\n";
 echo "Valor com desconto: $novoValor\n";
 
+?>

@@ -8,3 +8,4 @@ $salarioFinal = $salario + $comissao;
 
 echo "Salário final: $salarioFinal\n";
 
+?>

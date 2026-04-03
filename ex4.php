@@ -10,3 +10,4 @@ if ($combustivel > 0) {
     echo "Valor de combustível inválido\n";
 }
 
+?>

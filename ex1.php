@@ -17,3 +17,4 @@ if ($media >= 7) {
     echo "Reprovado\n";
 }
 
+?>
