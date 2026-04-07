@@ -1,0 +1,6 @@
+o sistema deve
+-cadastrar cliente no banco
+-selecionar pedido do cliente
+-somar valores
+-salvar histórico
+
