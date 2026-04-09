@@ -1,3 +1,6 @@
 git add .
 git commit -m "nome"
 git push
+
+http://localhost/phpmyadmin
+http://localhost/pizzaria/index.php

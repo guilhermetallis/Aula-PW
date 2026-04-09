@@ -1,54 +1,41 @@
 <?php
-// pega os dados do formulário
-$codigo = $_POST['cxcodigo'];
-$codigoProduto = $_POST['cxproduto'];
-$quantidade = $_POST['cxqtd'];
+include 'conexao.php';
 
-// lista de clientes
-$clientes = array(
-    1 => "Guilherme",
-    2 => "Joyjoy",
-    3 => "Milena",
-    4 => "Maria",
-    5 => "Fernanda",
-    6 => "Pedro",
-    7 => "Luiza",
-    8 => "Rafael"
-);
+// Recebe os dados do formulário
+$clienteId = $_POST['cliente'];
+$produtoId = $_POST['produto'];
+$quantidade = $_POST['quantidade'];
 
-// lista de produtos
-$produtos = array(
-    1 => array('nome' => 'Pizza de Queijo', 'preco' => 35.00),
-    2 => array('nome' => 'Pizza de Calabresa', 'preco' => 40.00),
-    3 => array('nome' => 'Pizza de Frango', 'preco' => 45.00),
-    4 => array('nome' => 'Coca-Cola', 'preco' => 8.00)
-);
+// Buscar cliente
+$sqlCliente = "SELECT * FROM clientes WHERE id = $clienteId";
+$resultadoCliente = $conexao->query($sqlCliente);
+$cliente = $resultadoCliente->fetch_assoc();
 
-// Verifica se o cliente existe
-if (isset($clientes[$codigo])) {
-    $nomeCliente = $clientes[$codigo];
-} else {
-    $nomeCliente = 'Cliente não encontrado';
-}
+// Buscar produto
+$sqlProduto = "SELECT * FROM produtos WHERE id = $produtoId";
+$resultadoProduto = $conexao->query($sqlProduto);
+$produto = $resultadoProduto->fetch_assoc();
 
-// Verifica se o produto existe
-if (isset($produtos[$codigoProduto])) {
-    $nomeProduto = $produtos[$codigoProduto]['nome'];
-    $valorUnitario = $produtos[$codigoProduto]['preco'];
-} else {
-    $nomeProduto = 'Produto não encontrado';
-    $valorUnitario = 0;
-}
-
-// Valor total do pedido
+$nomeCliente = $cliente['nome'];
+$nomeProduto = $produto['nome'];
+$valorUnitario = $produto['preco'];
 $total = $valorUnitario * $quantidade;
+
+// Salvar pedido no banco
+$sqlPedido = "INSERT INTO pedidos (cliente_id, produto_id, quantidade, valor_unitario, valor_total)
+              VALUES ($clienteId, $produtoId, $quantidade, $valorUnitario, $total)";
+
+if ($conexao->query($sqlPedido) === TRUE) {
+    $mensagem = "Pedido salvo com sucesso!";
+} else {
+    $mensagem = "Erro ao salvar pedido: " . $conexao->error;
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comanda do Pedido</title>
 </head>
 <body>
@@ -60,7 +47,10 @@ $total = $valorUnitario * $quantidade;
     <p><strong>Valor Unitário:</strong> R$ <?php echo number_format($valorUnitario, 2, ',', '.'); ?></p>
     <p><strong>Valor Total:</strong> R$ <?php echo number_format($total, 2, ',', '.'); ?></p>
 
+    <p><strong>Status:</strong> <?php echo $mensagem; ?></p>
+
     <br>
-    <a href="index.php">Fazer novo pedido</a>
+    <a href="index.php">Fazer novo pedido</a><br>
+    <a href="historico.php">Ver histórico</a>
 </body>
 </html>
