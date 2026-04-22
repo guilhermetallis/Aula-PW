@@ -8,3 +8,4 @@ if ($numero >= 0) {
     echo "Negativo\n";
 }
 
+?>

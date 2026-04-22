@@ -19,4 +19,4 @@ if ($saque <= $saldo) {
         echo "Saldo Insuficiente\n";
     }
 }
-
+?>

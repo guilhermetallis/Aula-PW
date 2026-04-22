@@ -8,3 +8,4 @@ if ($media >= 7) {
     echo "Não foi aprovado\n";
 }
 
+?>

@@ -8,3 +8,4 @@ if ($numero % 2 == 0) {
     echo "Ímpar\n";
 }
 
+?>

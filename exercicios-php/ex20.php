@@ -16,3 +16,4 @@ if ($idade < 5) {
     echo "Adulto\n";
 }
 
+?>

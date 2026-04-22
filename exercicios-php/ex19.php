@@ -17,3 +17,4 @@ echo "Salário antigo: $salario\n";
 echo "Percentual de aumento: " . ($percentual * 100) . "%\n";
 echo "Novo salário: $novoSalario\n";
 
+?>

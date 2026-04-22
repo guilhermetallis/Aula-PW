@@ -11,3 +11,4 @@ if ($genero == "M") {
 
 echo "Peso ideal: $pesoIdeal\n";
 
+?>

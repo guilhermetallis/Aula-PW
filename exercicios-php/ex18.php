@@ -14,3 +14,4 @@ echo "Valor original: $valor\n";
 echo "Desconto: $desconto\n";
 echo "Total a pagar: $total\n";
 
+?>
