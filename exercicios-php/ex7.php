@@ -6,3 +6,4 @@ if ($velocidade > 80) {
     echo "Você foi multado!\n";
 }
 
+?>

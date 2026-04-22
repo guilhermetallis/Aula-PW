@@ -8,3 +8,4 @@ if ($senha == "1234") {
     echo "Senha Incorreta\n";
 }
 
+?>

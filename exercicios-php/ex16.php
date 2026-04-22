@@ -16,3 +16,4 @@ if ($altura > 0) {
     echo "Altura inválida\n";
 }
 
+?>

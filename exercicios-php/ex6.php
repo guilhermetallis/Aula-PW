@@ -8,3 +8,4 @@ if ($idade >= 18) {
     echo "Menor de Idade\n";
 }
 
+?>

@@ -8,3 +8,4 @@ if ($valor > 500) {
     echo "Sem brinde.\n";
 }
 
+?>

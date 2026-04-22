@@ -11,3 +11,4 @@ if ($n1 > $n2) {
     echo "Os dois são iguais\n";
 }
 
+?>

@@ -8,3 +8,4 @@ if ($saldo < 0) {
     echo "Positivo\n";
 }
 
+?>
